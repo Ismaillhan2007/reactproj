@@ -1,0 +1,108 @@
+.Header {
+    padding-top: 15px;
+    display: flex;
+    background-color:white;
+    height: 140px;
+}
+.Header__left{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    width: 340px;
+    
+}
+
+.Header__left img {
+    width: 75px;
+    height: 76px;
+    flex-shrink: 0;
+}
+.subtext {
+    font-weight: 300;
+    font-size: 8px;
+}
+
+.Header h1 {
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.logo__text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper {
+    display: flex;
+}
+
+.line {
+    background-color: rgba(0, 0, 0, 0.31);
+    border-radius: 15px;
+    width: 3px;
+    height: 75px;
+    border: 1px solid  rgba(0, 0, 0, 0.31);;
+    margin-right: 20px;
+}
+.Header__right {
+    width: 100%;
+}
+
+.Header__right_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.slogan p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75px;
+    gap: 10px;
+}
+
+.contacts img:first-child {
+    width: 35px;
+    height: 35px;
+}
+.contacts img:nth-child(2){
+    width: 27px;
+    height: 27px;
+}
+
+.contacts {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 40px;
+    padding: 0;
+    margin-top: 40px;
+}
+
+nav ul li {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 77.4%; 
+}
