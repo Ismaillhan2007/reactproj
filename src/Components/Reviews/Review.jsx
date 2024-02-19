@@ -1,4 +1,4 @@
-import{addCommentActionCreater,updateNewHousesTextActionCreater} from './../../redux/store';
+import{addCommentActionCreater,updateNewCommentActionCreater} from './../../redux/store';
 import './../../App.css';
 import './Review.css';
 import React from 'react';
@@ -13,7 +13,7 @@ let Reviews = (props)=> {
     }
     
     let UpdateNewReviewText = () => {
-        props.dispatch(updateNewHousesTextActionCreater(newReview.current.value))
+        props.dispatch(updateNewCommentActionCreater(newReview.current.value))
     }
     
     
