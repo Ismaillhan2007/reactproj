@@ -1,6 +1,7 @@
 const ADD_HOUSE = "ADD_HOUSE";
 const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const ADD_COMMENT = "ADD_COMMENT";
+const UPDATE_NEW_COMMENT_TEXT = "UPDATE_NEW_COMMENT_TEXT";
 let store = {
     _state: {
         houses: [
@@ -27,19 +28,19 @@ let store = {
         reviews:[
           {
             id:1,
-            review:"Hello,i like it",
+            name:"Hello,i like it",
            
           },
           {
             id:2,
-            review:"Good site",
+            name:"Good site",
             
           }
         ],
 
         newHouseName: "",
         newHouseDescription: "",
-        newReview:"",
+        newReviewsName: "",
     },
 
     getState(){
@@ -71,7 +72,7 @@ let store = {
       else if(action.type === UPDATE_NEW_HOUSES_TEXT){
         this.getState().newHouseName = action.newHouseNameText;
         this.getState().newHouseDescription = action.newHouseDescriptionText;
-        this._callSubscribe(store);
+        this._callSubscribe(store);         
       }
 
       else if(action.type === ADD_COMMENT){
@@ -82,9 +83,12 @@ let store = {
           this.getState().reviews.push(newRev)
           this._callSubscribe(store);
       }
+      else if(action.type ===  UPDATE_NEW_COMMENT_TEXT){
+        this.getState().newReviewsName = action.newReviewsNameText;
+        this._callSubscribe(store); 
       }
     }
-
+  }
 
 
 
@@ -93,5 +97,7 @@ export const addHouseActionCreater = ()=> ({type: ADD_HOUSE});
 export const updateNewHousesTextActionCreater = (newHouseName,newHouseDescription)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName,newHouseDescriptionText:  newHouseDescription})
 
 export const addCommentActionCreater = ()=>({type:ADD_COMMENT})
+
+export const updateNewCommenActionCreater = (newReviewsname) => {return {type: UPDATE_NEW_COMMENT_TEXT, newReviewsNameText: newReviewsName}}
 
 export default store;

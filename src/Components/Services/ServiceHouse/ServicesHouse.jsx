@@ -15,4 +15,4 @@ let ServicesHouse = (props) => {
   );
 };
 
-export default ServicesHouse;
+export default ServicesHouse; 
