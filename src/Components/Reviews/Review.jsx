@@ -3,6 +3,7 @@ import './../../App.css';
 import './Review.css';
 import React from 'react';
 
+
 let Reviews = (props)=> {
     const newReview = React.useRef();
     console.log(props)
@@ -27,7 +28,6 @@ let Reviews = (props)=> {
                 props.state.reviews.map((review)=>(
                     <div className='review_block' key={review.id}>
                         <p>{review.review}</p>
-                     
                     </div>
                 ))
             }

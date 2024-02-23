@@ -3,7 +3,7 @@ import "../../App.css"
 import ServicesHouse from "./ServiceHouse/ServicesHouse";
 import React from "react";
 import { addHouseActionCreater, updateNewHousesTextActionCreater } from "../../redux/store";
-import Reviews from "../Reviews/Review";
+
 
 let Services = (props) => {
   const newHouseName = React.useRef();
@@ -28,7 +28,7 @@ let Services = (props) => {
           <button onClick={addHouse}>Submit</button>
         </div>
         <ServicesHouse state={props.state}/>
-        <Reviews state={props.state}/>
+      
       </div>
       
     </div>

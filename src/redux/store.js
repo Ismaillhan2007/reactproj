@@ -27,12 +27,16 @@ let store = {
 
         reviews:[
           {
-            id:1,
+            review: "Из газобетона",
+            id: 1,
+        },
+          {
+            id:2,
             name:"Hello,i like it",
            
           },
           {
-            id:2,
+            id:3,
             name:"Good site",
             
           }
@@ -76,12 +80,11 @@ let store = {
       }
 
       else if(action.type === ADD_COMMENT){
-        let newRev={
-          review:this.getState().newReview,
-          id:this.getState().reviews.length+1,
+        let newReviews={
+          name: this.getState().newReviewsName,
         }
-          this.getState().reviews.push(newRev)
-          this._callSubscribe(store);
+        this.getState().houses.push(newReviews);
+        this._callSubscribe(store);
       }
       else if(action.type ===  UPDATE_NEW_COMMENT_TEXT){
         this.getState().newReviewsName = action.newReviewsNameText;
