@@ -1,19 +1,19 @@
-.Reviews {
+.Review {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.5em;
     margin-bottom: 50px;
-    gap: 15px;
+    gap: 15px; 
 }
 
 .Reviews_form {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 200px;
+    border-radius: 20px;
 }
 .Reviews button {
     height: 30px;

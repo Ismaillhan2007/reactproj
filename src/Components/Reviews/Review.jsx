@@ -1,39 +1,35 @@
-import{addCommentActionCreater,updateNewCommentActionCreater} from './../../redux/store';
+   
 import './../../App.css';
 import './Review.css';
 import React from 'react';
 
-
 let Reviews = (props)=> {
-    const newReview = React.useRef();
-    console.log(props)
-
+    const review = React.useRef();
 
     let addReview = ()=> {
-        props.dispatch(addCommentActionCreater())
+        props.addReview();
+        review.current.value = "";
     }
     
     let UpdateNewReviewText = () => {
-        props.dispatch(updateNewCommentActionCreater(newReview.current.value))
+        props.UpdateNewReviewText(review.current.value)
     }
-    
-    
+    debugger
     return (
-        <div className='Reviews'>
+        <div className='Review'>
             <div className='Reviews_form'>
-                <textarea ref={newReview} value={props.state.newReview} onChange={UpdateNewReviewText}></textarea>
+                <textarea ref={review} value={props.newReview} onChange={UpdateNewReviewText}></textarea>
                 <button onClick={addReview}>AddReview</button>
             </div>
             {
-                props.state.reviews.map((review)=>(
-                    <div className='review_block' key={review.id}>
-                        <p>{review.review}</p>
+                props.reviewsPage.reviews.map((newReviews)=>(
+                    <div className='review_block' key={newReviews.id}>
+                        <p>{newReviews.review}</p>
                     </div>
                 ))
             }
         </div>
     )
 }
-
 
 export default Reviews;

@@ -1,10 +1,15 @@
+
+import housesReducer from "./housesReducer";
+import commentsReducer from "./commentsReducer";
+
 const ADD_HOUSE = "ADD_HOUSE";
 const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const ADD_COMMENT = "ADD_COMMENT";
 const UPDATE_NEW_COMMENT_TEXT = "UPDATE_NEW_COMMENT_TEXT";
 let store = {
     _state: {
-        houses: [
+        housesPage : {
+          houses: [
             {
               name: "Из бетона",
               image: "./images/House1.png",
@@ -24,27 +29,31 @@ let store = {
               description: ""
             },
         ],
-
-        reviews:[
-          {
-            review: "Из газобетона",
-            id: 1,
-        },
-          {
-            id:2,
-            name:"Hello,i like it",
-           
-          },
-          {
-            id:3,
-            name:"Good site",
-            
-          }
-        ],
-
         newHouseName: "",
         newHouseDescription: "",
-        newReviewsName: "",
+        },
+          reviewsPage :{
+            
+          reviews:[
+            {
+              review: "Из газобетона",
+              id: 1,
+          },
+            {
+              id:2,
+              review:"Hello,i like it",
+            
+            },
+            {
+              id:3,
+              review:"Good site",
+              
+            }
+          ],
+
+          newReviewsName: "",
+        }
+  
     },
 
     getState(){
@@ -63,33 +72,8 @@ let store = {
     },
 
     dispatch(action){
-      if(action.type === ADD_HOUSE){
-        let newHouse = {
-          name: this.getState().newHouseName,
-          description: this.getState().newHouseDescription,
-          image: "./images/House1.png",
-          id: this.getState().houses.length+1,
-        } 
-        this.getState().houses.push(newHouse)
-        this._callSubscribe(store)
-      }
-      else if(action.type === UPDATE_NEW_HOUSES_TEXT){
-        this.getState().newHouseName = action.newHouseNameText;
-        this.getState().newHouseDescription = action.newHouseDescriptionText;
-        this._callSubscribe(store);         
-      }
-
-      else if(action.type === ADD_COMMENT){
-        let newReviews={
-          name: this.getState().newReviewsName,
-        }
-        this.getState().houses.push(newReviews);
-        this._callSubscribe(store);
-      }
-      else if(action.type ===  UPDATE_NEW_COMMENT_TEXT){
-        this.getState().newReviewsName = action.newReviewsNameText;
-        this._callSubscribe(store); 
-      }
+      this.getState().housesPage = housesReducer( this.getState().housesPage,action)
+      this.getState().reviewsPage = commentsReducer( this.getState().reviewsPage,action)
     }
   }
 

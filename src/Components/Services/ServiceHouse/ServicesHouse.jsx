@@ -2,7 +2,6 @@ import "../Services.css";
 import "../../../App.css"
 import House from "./House";
 let ServicesHouse = (props) => {
-  
   return (
     <div className="ServicesHouse">
       
