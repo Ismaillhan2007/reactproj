@@ -6,28 +6,30 @@ const ADD_HOUSE = "ADD_HOUSE";
 const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const ADD_COMMENT = "ADD_COMMENT";
 const UPDATE_NEW_COMMENT_TEXT = "UPDATE_NEW_COMMENT_TEXT";
+const SET_HOUSE = "SET_HOUSE";
+
 let store = {
     _state: {
         housesPage : {
           houses: [
-            {
-              name: "Из бетона",
-              image: "./images/House1.png",
-              id: 1,
-              description: ""
-            },
-            {
-              name: "Из кирпича",
-              image: "./images/House2.png",
-              id: 2,
-              description: ""
-            },
+              {
+                name: "Из бетона",
+                image: "./images/House1.png",
+                id: 1,
+                description: ""
+              },
+              {    
+                name: "Из кирпича",
+                image: "./images/House2.png",
+                id: 2,
+                description: ""
+              },
             {
               name: "Из дерево",
               image: "./images/House3.png",
               id: 3,
               description: ""
-            },
+            },    
         ],
         newHouseName: "",
         newHouseDescription: "",
@@ -86,5 +88,9 @@ export const updateNewHousesTextActionCreater = (newHouseName,newHouseDescriptio
 export const addCommentActionCreater = ()=>({type:ADD_COMMENT})
 
 export const updateNewCommentActionCreater = (newReviewsName) =>  ({type: UPDATE_NEW_COMMENT_TEXT, newReviewsNameText: newReviewsName})
+
+export const setHouseActionCreater = (houses)=>({type:SET_HOUSE,house:houses})
+
+export const setHouse = (houses) => ({ type: 'SET_HOUSE', house: houses });
 
 export default store;

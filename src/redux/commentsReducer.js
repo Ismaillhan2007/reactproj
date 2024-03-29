@@ -46,6 +46,8 @@ const   commentsReducer = (state = initialState,action)=> {
 
     }
 }
+export const addCommentActionCreater = ()=>({type:ADD_COMMENT})
 
+export const updateNewCommentActionCreater = (newReviewsName) =>  ({type: UPDATE_NEW_COMMENT_TEXT, newReviewsNameText: newReviewsName})
 
 export default commentsReducer;

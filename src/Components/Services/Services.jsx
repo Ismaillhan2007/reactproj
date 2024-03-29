@@ -2,11 +2,33 @@ import "./Services.css";
 import "../../App.css"
 import ServicesHouse from "./ServiceHouse/ServicesHouse";
 import React from "react";
+import { setHouse } from "../../redux/store";
 
 
 let Services = (props) => {
+
   const newHouseName = React.useRef();
   const newHouseDescription = React.useRef();
+  console.log (props);
+      if (props.housesPage.houses.length===0){
+        fetch("https://6605b4f9d92166b2e3c2a359.mockapi.io/houses/v1/houses")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(data => {
+        setHouse('Ответ от сервера:', data);
+      })
+      .catch(error => {
+        console.error('Произошла ошибка при выполнении запроса:', error);
+      });
+
+      }
+
+  
+
   
   let addHouse = () => {
     props.addHouse();
@@ -31,4 +53,7 @@ let Services = (props) => {
     </div>
   );
 };
+
+
+
 export default Services;
