@@ -7,6 +7,8 @@ const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const ADD_COMMENT = "ADD_COMMENT";
 const UPDATE_NEW_COMMENT_TEXT = "UPDATE_NEW_COMMENT_TEXT";
 const SET_HOUSE = "SET_HOUSE";
+const DELETE_HOUSE = "DELETE_HOUSE";
+
 
 let store = {
     _state: {
@@ -92,5 +94,8 @@ export const updateNewCommentActionCreater = (newReviewsName) =>  ({type: UPDATE
 export const setHouseActionCreater = (houses)=>({type:SET_HOUSE,house:houses})
 
 export const setHouse = (houses) => ({ type: 'SET_HOUSE', house: houses });
+
+export const DeleteHouseActionCreater = (id)=>({type:DELETE_HOUSE,id:id})
+
 
 export default store;

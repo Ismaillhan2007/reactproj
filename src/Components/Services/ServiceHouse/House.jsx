@@ -1,13 +1,11 @@
 import "../Services.css";
 import "../../../App.css"
-import { useNavigate } from "react-router-dom";
 
 let House = (props) => {
   
-  const navigate = useNavigate();
-  function openHomeDesc(){
-    console.log(props.id)
-  }
+let deleteHouse = () => {
+  props.deleteHouse(props.id)
+}
 
   return (
     <div className="House">
@@ -15,7 +13,7 @@ let House = (props) => {
       <div className="House__name">
         <p>{props.name}</p>
       </div>
-      <button onClick={openHomeDesc}>Подробнее</button>
+      <button onClick={deleteHouse}>Delete</button>
     </div>
   );
 };

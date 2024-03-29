@@ -46,7 +46,7 @@ let Services = (props) => {
           <input type='text' placeholder='Описание' ref={newHouseDescription} value={props.housesPage.newHouseDescription} onChange={updateNewHousesText}/>
           <button onClick={addHouse}>Submit</button>
         </div>
-        <ServicesHouse state={props.housesPage}/>
+        <ServicesHouse state={props.housesPage} deleteHouse = {props.deleteHouse}/>
       
       </div>
       

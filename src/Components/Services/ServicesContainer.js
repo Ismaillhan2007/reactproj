@@ -1,6 +1,6 @@
 import "./Services.css";
 import "../../App.css"
-import { addHouseActionCreater, updateNewHousesTextActionCreater,setHouseActionCreater } from "../../redux/store";
+import { addHouseActionCreater, updateNewHousesTextActionCreater,setHouseActionCreater,DeleteHouseActionCreater  } from "../../redux/store";
 import Services from "./Services";
 import { connect } from "react-redux";
 
@@ -21,6 +21,9 @@ function mapDispatchToProps (dispatch) {
     setHouse:(houses)=> {
       dispatch(setHouseActionCreater(houses))
     },
+    deleteHouse:(id)=> {
+      dispatch(DeleteHouseActionCreater(id));
+    }
   }
 }
 
