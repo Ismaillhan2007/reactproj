@@ -3,6 +3,37 @@ import "../../App.css"
 import { addHouseActionCreater, updateNewHousesTextActionCreater,setHouseActionCreater,DeleteHouseActionCreater  } from "../../redux/store";
 import Services from "./Services";
 import { connect } from "react-redux";
+import withAuthRedirect from "../HOC/withAuthRedirect";
+import React, { useEffect } from "react";
+import { setHouse } from "../../redux/store";
+
+
+let ServicesContainer = (props) => {
+  useEffect (()=> {
+       
+    fetch("https://6605b4f9d92166b2e3c2a359.mockapi.io/houses/v1/houses")
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+      setHouse('Ответ от сервера:', data);
+    })
+    .catch(error => {
+      console.error('Произошла ошибка при выполнении запроса:', error);
+    });
+
+
+    return ()=> {
+      console.log ("Я пропал")
+    }
+  },[]);
+
+return <Services {...props}/>;
+}
+
 
 function mapStateToProps(state){
   return {
@@ -26,7 +57,6 @@ function mapDispatchToProps (dispatch) {
     }
   }
 }
-
-let ServicesContainer = connect(mapStateToProps,mapDispatchToProps)(Services)
-export default ServicesContainer;
+let AuthRedirect = withAuthRedirect (ServicesContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(AuthRedirect);
 

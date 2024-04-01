@@ -6,15 +6,21 @@ let House = (props) => {
 let deleteHouse = () => {
   props.deleteHouse(props.id)
 }
-
+debugger
   return (
     <div className="House">
       <img src={props.image} alt="house"/>
       <div className="House__name">
         <p>{props.name}</p>
       </div>
-      <button onClick={deleteHouse}>Delete</button>
+      <div>
+      <button >Подробнее</button>
+      </div>
+      <div>
+        <button onClick={deleteHouse}>delete</button>
+      </div>
     </div>
+    
   );
 };
 

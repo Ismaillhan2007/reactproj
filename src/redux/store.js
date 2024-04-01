@@ -8,6 +8,8 @@ const ADD_COMMENT = "ADD_COMMENT";
 const UPDATE_NEW_COMMENT_TEXT = "UPDATE_NEW_COMMENT_TEXT";
 const SET_HOUSE = "SET_HOUSE";
 const DELETE_HOUSE = "DELETE_HOUSE";
+const UPDATE_NEW_HOUSES_DESCRIPTION = "UPDATE_NEW_HOUSES_DESCRIPTION"
+
 
 
 let store = {
@@ -18,19 +20,19 @@ let store = {
                 name: "Из бетона",
                 image: "./images/House1.png",
                 id: 1,
-                description: ""
+                description: "Дом из бетона"
               },
               {    
                 name: "Из кирпича",
                 image: "./images/House2.png",
                 id: 2,
-                description: ""
+                description: "Дом из кирпича"
               },
             {
               name: "Из дерево",
               image: "./images/House3.png",
               id: 3,
-              description: ""
+              description: "Дом из дерева"
             },    
         ],
         newHouseName: "",
@@ -85,7 +87,10 @@ let store = {
 
 export const addHouseActionCreater = ()=> ({type: ADD_HOUSE});
 
-export const updateNewHousesTextActionCreater = (newHouseName,newHouseDescription)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName,newHouseDescriptionText:  newHouseDescription})
+export const updateNewHousesTextActionCreater = (newHouseName)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName})
+
+export const updateNewHousesDescriptionActionCreater = (newHouseDescription) => ({type :UPDATE_NEW_HOUSES_DESCRIPTION,newHouseDescriptionText  : newHouseDescription})
+
 
 export const addCommentActionCreater = ()=>({type:ADD_COMMENT})
 

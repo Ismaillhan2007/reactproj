@@ -2,6 +2,7 @@ const ADD_HOUSE = "ADD_HOUSE";
 const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const SET_HOUSE = "SET_HOUSE";
 const DELETE_HOUSE = "DELETE_HOUSE";
+const UPDATE_NEW_HOUSES_DESCRIPTION = "UPDATE_NEW_HOUSES_DESCRIPTION"
 let initialState = {
     
         houses: [
@@ -29,7 +30,7 @@ let initialState = {
       
       };
 
-
+debugger
 const   housesReducer = (state = initialState,action)=> {
     switch(action.type) {
         case ADD_HOUSE: {
@@ -69,9 +70,15 @@ const   housesReducer = (state = initialState,action)=> {
         case UPDATE_NEW_HOUSES_TEXT: {
           return {
             ...state,
-            newHouseName:action.newHouseNameText ,
-            newHouseDescription:action.newHouseDescriptionText
+            newHouseName:action.newHouseNameText 
           }   
+        }
+        case UPDATE_NEW_HOUSES_DESCRIPTION : {
+          return {
+            ...state,
+            newHouseDescription:action.newHouseDescriptionText
+
+          }
         }
         case SET_HOUSE: {
           return {
@@ -107,7 +114,9 @@ const   housesReducer = (state = initialState,action)=> {
 }
 export const addHouseActionCreater = ()=> ({type: ADD_HOUSE});
 
-export const updateNewHousesTextActionCreater = (newHouseName,newHouseDescription)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName,newHouseDescriptionText:  newHouseDescription})
+export const updateNewHousesTextActionCreater = (newHouseName)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName})
+
+export const updateNewHousesDescriptionActionCreater = (newHouseDescription) => ({type :UPDATE_NEW_HOUSES_DESCRIPTION,newHouseDescriptionText:   newHouseDescription})
 
 export const setHouse = (houses)=>({type:SET_HOUSE,house:houses})
 
