@@ -2,7 +2,8 @@ const ADD_HOUSE = "ADD_HOUSE";
 const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const SET_HOUSE = "SET_HOUSE";
 const DELETE_HOUSE = "DELETE_HOUSE";
-const UPDATE_NEW_HOUSES_DESCRIPTION = "UPDATE_NEW_HOUSES_DESCRIPTION"
+const UPDATE_NEW_HOUSES_DESCRIPTION = "UPDATE_NEW_HOUSES_DESCRIPTION";
+const TOGGLE_PRELOADER = "TOGGLE_PRELOADER";
 let initialState = {
     
         houses: [
@@ -27,7 +28,7 @@ let initialState = {
       ],
       newHouseName: "",
       newHouseDescription: "",
-      
+      isLoad:true
       };
 
 debugger
@@ -80,6 +81,9 @@ const   housesReducer = (state = initialState,action)=> {
 
           }
         }
+        case TOGGLE_PRELOADER  : {
+          return {...state,isLoad:action.status}
+        }
         case SET_HOUSE: {
           return {
             ...state,
@@ -112,14 +116,16 @@ const   housesReducer = (state = initialState,action)=> {
     } 
 
 }
-export const addHouseActionCreater = ()=> ({type: ADD_HOUSE});
+export const togglePreloader =(status)=> ({type:TOGGLE_PRELOADER,status:status})
 
-export const updateNewHousesTextActionCreater = (newHouseName)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName})
+export const addHouse = ()=> ({type: ADD_HOUSE});
 
-export const updateNewHousesDescriptionActionCreater = (newHouseDescription) => ({type :UPDATE_NEW_HOUSES_DESCRIPTION,newHouseDescriptionText:   newHouseDescription})
+export const updateNewHousesText = (newHouseName)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName})
+
+export const updateNewHousesDescription = (newHouseDescription) => ({type :UPDATE_NEW_HOUSES_DESCRIPTION,newHouseDescriptionText:   newHouseDescription})
 
 export const setHouse = (houses)=>({type:SET_HOUSE,house:houses})
 
-export const DeleteHouseActionCreater = (id)=>({type:DELETE_HOUSE,id:id})
+export const DeleteHouse = (id)=>({type:DELETE_HOUSE,id:id})
 
 export default housesReducer;
