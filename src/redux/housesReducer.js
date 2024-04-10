@@ -2,7 +2,6 @@ const ADD_HOUSE = "ADD_HOUSE";
 const UPDATE_NEW_HOUSES_TEXT = "UPDATE_NEW_HOUSES_TEXT";
 const SET_HOUSE = "SET_HOUSE";
 const DELETE_HOUSE = "DELETE_HOUSE";
-const UPDATE_NEW_HOUSES_DESCRIPTION = "UPDATE_NEW_HOUSES_DESCRIPTION";
 const TOGGLE_PRELOADER = "TOGGLE_PRELOADER";
 let initialState = {
     
@@ -30,9 +29,9 @@ let initialState = {
       newHouseDescription: "",
       isLoad:true
       };
+      debugger
 
-debugger
-const   housesReducer = (state = initialState,action)=> {
+const housesReducer = (state = initialState,action)=> {
     switch(action.type) {
         case ADD_HOUSE: {
           let postData = {
@@ -74,13 +73,7 @@ const   housesReducer = (state = initialState,action)=> {
             newHouseName:action.newHouseNameText 
           }   
         }
-        case UPDATE_NEW_HOUSES_DESCRIPTION : {
-          return {
-            ...state,
-            newHouseDescription:action.newHouseDescriptionText
-
-          }
-        }
+       
         case TOGGLE_PRELOADER  : {
           return {...state,isLoad:action.status}
         }
@@ -92,8 +85,8 @@ const   housesReducer = (state = initialState,action)=> {
         }
 
         case DELETE_HOUSE:{
-          fetch('https://6605b4f9d92166b2e3c2a359.mockapi.io/houses/v1/houses/${action.id}',{
-            method:'Delete',
+          fetch(`https://6605b4f9d92166b2e3c2a359.mockapi.io/houses/v1/houses/${action.id}`,{
+            method:'DELETE',
           })
           .then(function(response){
             if (!response.ok){
@@ -121,8 +114,6 @@ export const togglePreloader =(status)=> ({type:TOGGLE_PRELOADER,status:status})
 export const addHouse = ()=> ({type: ADD_HOUSE});
 
 export const updateNewHousesText = (newHouseName)=>({type: UPDATE_NEW_HOUSES_TEXT,newHouseNameText: newHouseName})
-
-export const updateNewHousesDescription = (newHouseDescription) => ({type :UPDATE_NEW_HOUSES_DESCRIPTION,newHouseDescriptionText:   newHouseDescription})
 
 export const setHouse = (houses)=>({type:SET_HOUSE,house:houses})
 

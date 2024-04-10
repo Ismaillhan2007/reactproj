@@ -1,12 +1,17 @@
 import "../Services.css";
 import "../../../App.css"
+import { useNavigate } from "react-router-dom";
 
-let House = (props) => {
+const House = (props) => {
   
-let deleteHouse = () => {
+const navigate = useNavigate;
+
+const deleteHouse = () => {
   props.deleteHouse(props.id)
 }
-debugger
+let redirectDescription = (id)=> {
+  navigate(`./houseDescription/${id}`)
+}
   return (
     <div className="House">
       <img src={props.image} alt="house"/>
@@ -14,7 +19,7 @@ debugger
         <p>{props.name}</p>
       </div>
       <div>
-      <button >Подробнее</button>
+      <button onClick={()=>{redirectDescription(1)}}>Подробнее</button>
       </div>
       <div>
         <button onClick={deleteHouse}>delete</button>

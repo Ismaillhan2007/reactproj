@@ -14,7 +14,6 @@ let Reviews = (props)=> {
     let UpdateNewReviewText = () => {
         props.UpdateNewReviewText(review.current.value)
     }
-    debugger
     return (
         <div className='Review'>
             <div className='Reviews_form'>

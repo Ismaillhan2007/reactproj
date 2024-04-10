@@ -4,6 +4,7 @@ import commentsReducer from "./commentsReducer";
 let reducers = combineReducers({
     housesPage:housesReducer,
     reviewsPage:commentsReducer
+    
 });
 let store = createStore(reducers);
 

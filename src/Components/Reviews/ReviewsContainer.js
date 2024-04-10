@@ -1,6 +1,6 @@
 import Reviews from './Review';
 import './Review.css';
-import { addCommentActionCreater, updateNewCommentActionCreater } from "../../redux/store";
+import { addCommentActionCreater, updateNewCommentActionCreater } from "../../redux/commentsReducer";
 import "../../App.css";
 import { connect } from 'react-redux';
 

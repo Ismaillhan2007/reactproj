@@ -1,12 +1,12 @@
 import "./Services.css";
 import "../../App.css"
-import { addHouse, updateNewHousesText,updateNewHousesDescription,setHouse,DeleteHouse,togglePreloader  } from "../../redux/store";
+import { addHouse, updateNewHousesText,setHouse,DeleteHouse  } from "../../redux/housesReducer";
 import Services from "./Services";
 import { connect } from "react-redux";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import React, { useEffect } from "react";
-
-
+import { togglePreloader } from "../../redux/housesReducer";
+debugger
 let ServicesContainer = (props) => {
   useEffect (()=> {
     props.togglePreloader(true)
@@ -25,10 +25,6 @@ let ServicesContainer = (props) => {
       console.error('Произошла ошибка при выполнении запроса:', error);
     });
 
-
-    return ()=> {
-      console.log ("Я пропал")
-    }
   },[]);
 
 return <Services {...props}/>;
@@ -65,11 +61,9 @@ function mapStateToProps(state){
 // }
 let AuthRedirect = withAuthRedirect (ServicesContainer)
 export default connect(mapStateToProps,{
-  addHouse
+addHouse
 ,
 updateNewHousesText
-,
-updateNewHousesDescription
 ,
 setHouse
 ,

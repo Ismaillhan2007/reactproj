@@ -1,0 +1,12 @@
+.HouseDescription {
+    width: 100%;
+}
+.houseWrapper {
+    width: 50%;
+    border: 1px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
