@@ -29,7 +29,6 @@ let initialState = {
       newHouseDescription: "",
       isLoad:true
       };
-      debugger
 
 const housesReducer = (state = initialState,action)=> {
     switch(action.type) {
